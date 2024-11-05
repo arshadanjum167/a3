@@ -401,24 +401,14 @@ class CommonFunction
   public static function getDashboardCount()
   {
     $result = array();
-    $result['total_blog'] = Blog::where(['is_deleted'=>0])->count();
-    $result['total_blog_views'] = Blog::where(['is_deleted'=>0,'is_active'=>1])->sum('read_count');
+    $result['total_blog'] = 0;// Blog::where(['is_deleted'=>0])->count();
+    $result['total_blog_views'] = 0;//Blog::where(['is_deleted'=>0,'is_active'=>1])->sum('read_count');
 
     return $result;
   }
   
   
-  public static function getmp4video()
-  {
-    $result=array(
-      ['format'=>'mp4','size'=>'1','resolution'=>'1280x720','url'=>'videos/mp4/720/big_buck_bunny_720p_1mb.mp4'],
-      ['format'=>'mp4','size'=>'2','resolution'=>'1280x720','url'=>'videos/mp4/720/big_buck_bunny_720p_2mb.mp4'],
-      ['format'=>'mp4','size'=>'5','resolution'=>'1280x720','url'=>'videos/mp4/720/big_buck_bunny_720p_5mb.mp4'],
-      ['format'=>'mp4','size'=>'10','resolution'=>'1280x720','url'=>'videos/mp4/720/big_buck_bunny_720p_10mb.mp4'],
-      ['format'=>'mp4','size'=>'20','resolution'=>'1280x720','url'=>'videos/mp4/720/big_buck_bunny_720p_20mb.mp4']
-    );
-    return $result;
-  }  
+  
   
   
 }
