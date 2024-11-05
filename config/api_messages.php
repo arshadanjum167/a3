@@ -1,0 +1,83 @@
+<?php
+
+return [
+  'login_success'=>'Welcome',
+  'success'=>'success',
+  'invalid_login_1'=>'Invalid Email ID or Password.',
+  'invalid_login_2'=>'Invalid Contact Number or Password.',
+  'account_deactivate'=>'You are Inactivated or deleted from the administrator.Kindly contact our administrator.',
+  'contact_number_not_verified'=>'Please verify your contact number',
+  'mobile_exist_already'=>' Mobile is Already Registered.',
+  'email_exist_already'=>' Email is Already Registered.',
+  'highlight_already_viewed'=>'Highlight is Already Viewed.',
+  'success_highlight_viewed'=>'Highlight viewed succesfully',
+  'success_highlight_liked'=>'Highlight liked succesfully',
+  'success_highlight_unliked'=>'Highlight unliked succesfully',
+  
+  'verification_sms_sent'=>'Verification code has been succesfully sent on contact number.',
+  'verification_email_sent'=>'Your account has been successfully created. Please check your email address and verify your account',
+  'error_user_not_found'=>'User Not found',
+  
+  'error_contact_not_found'=>'Contact Number Not found',
+  'error_in_save'=>'Error In Saving. Please try again later.',
+  'otp_sent'=>'OTP sent to your contact number',
+  'success_profile_updated'=>'Profile updated succesfully',
+  'password_updated'=>'Password Updated',
+  'invalid_old_password'=>'Invalid old password',
+  'logout_success'=>'Logout succesfully',
+
+  'post_not_found'=>'Post not found',
+  'highlight_not_found'=>'Highlight not found',
+  'team_not_found'=>'Team not found',
+  'success_highlight_created'=>'Highlight created',
+  'success_highlight_updated'=>'Highlight updated',
+  'success_club_created'=>'Your request to add club has been successfully submitted. On admin approval you\'ll get email.',
+
+  'success_follow'=>'Following',
+  'success_unfollow'=>'Unfollowed',
+  
+  
+  'bad_request'=>'Bad Request',
+  'invalid_user_id'=>'Invalid User Id',
+  'something_went_wrong'=>'Something went wrong',
+  'friend_request_not_found'=>'Friend request not found',
+  'invitation_not_found'=>'Invitation not found',
+  'invalid_otp' =>'Invalid OTP Code',
+  'email_not_verify'=>'Email is not verified',
+
+  'success_email_verified'=>'Your email address has been verified.',
+  'error_email_already_verified'=>'Email already verified.',
+  
+  'error_email_verification_invalid_token'=>'Email verification token is not valid',
+  'error_not_permission'=>'You don\'t have permission to access this page.',
+  'error_email_verification_expire'=>' Email verification link expired !',
+  'error_forgot_password'=>'Error while reset password. Please retry.',
+  'forgot_password_link_sent'=>'Reset password link sent to your email successfully',
+  'forgot_password_sms_sent'=>'Please verify your contact number using OTP sent to it to reset the password',
+  'mobile_verified_successfully'=>'Contact number verified successfully',
+  'error_same_old_password'=>'New password is same as old password',
+  'forum_not_found'=>'Forum not found',
+  'success_contact_us'=>'Your enquiry submitted successfully',
+  'success_create_forum'=>'Forum created successfully.',
+  'success_update_forum'=>'Forum updated successfully.',
+  'success_delete_forum'=>'Forum deleted successfully.',
+  'success_delete_highlight'=>'Highlight deleted successfully.',
+  'success_delete_user'=>'User deleted successfully.',
+  'success_highlight_reported'=>'Highlight reported successfully.',
+  'error_already_highlight_reported'=>'Highlight already reported.',
+  'success_user_block'=>'User blocked successfully.',
+  'success_user_unblock'=>'User unblocked successfully.',
+  'error_data_not_found'=>'No data found',
+  'success_clear_all_notification'=>'All notifications have been cleared successfully',
+  
+  'success_rating_created'=>'Rating submitted successfully',
+  'rating_already_given'=>'You have already given rating to this user',
+
+  'success_game_report_created'=>'Game Report submitted successfully',
+  'game_report_already_given'=>'Game Report already submitted to this match',
+  'success_player_accepted'=>'Player accepted successfully',  
+  'success_player_rejected'=>'Player rejected successfully',  
+
+  'player_not_found'=>'Player not found',
+  'coach_already_register_with_team'=>'There is already a coach registered for this team',
+];

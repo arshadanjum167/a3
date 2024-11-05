@@ -1,0 +1,418 @@
+body{
+    background-color: #fff;
+    color:black;
+}
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+/* .row.content {height: 450px} */
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #fff;
+    height: calc(100vh - 112px);
+}
+.right-sidebar a {
+    padding-top: 20px;
+    background-color: #fff;
+    height: calc(100vh - 112px);
+    /* color:white !important; */
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+/* text-align: center; */
+}
+
+footer.container-fluid.row.col-md-4 a 
+{
+    color:white  !important;
+}
+.navbar-inverse .navbar-nav>li>a
+{
+    color:black  !important;
+}
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+    height: auto;
+    padding: 15px;
+    }
+    .row.content {height:auto;} 
+}
+
+.onlinetimestampconvert{
+    display: inline;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: #f5f5f5;
+    /* background-image: linear-gradient(to bottom,#ededfd 0%,#dddded 100%); */
+    line-height: 2.5;
+}
+.timetitle
+{
+    display: inline-block;
+    min-width: 120px;
+}
+
+.copy_btn{
+    width:100%;
+    font-size: 20px  !important;
+    background-color:#a16fe4 !important;
+}
+.jsoneditor{
+    border:thin solid #fc8129 !important;
+}
+.jsoneditor-menu{
+    background-color:#fc8129 !important;
+    border-bottom:1px solid #fc8129 !important;
+}
+.original_btn
+{
+    width:100%;
+    font-size: 20px  !important;
+    background-color:#fc8129 !important;
+    border-color:#fc8129 !important;
+}
+
+#sidebar-social {
+    text-decoration: none;
+    margin: 0 3px;
+    list-style: none;
+    padding-top: 1em;
+    padding-left: 0em;
+    border-top: 1px dashed  #D2CFCF;
+    background-color:#FFF;
+}
+#sidebar-social li {
+    display: inline-block;
+    margin-bottom: 7px;
+    vertical-align: top;
+}
+.twitter-btn{
+    background-color: #64a1d9 !important;
+}
+.fb-btn{
+    background-color: #4e588f !important;
+}
+.instagram-btn{
+    background-color: #8a3ab9 !important;
+}
+.youtube-btn{
+    background-color: #d22114 !important;
+}
+.pinterest-btn{
+    background-color: #E60023 !important;
+}
+.twitter-btn,.fb-btn,.instagram-btn,.youtube-btn,.pinterest-btn{
+    /* display: inline-block; */
+    height: 36px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 20px;
+    margin-right: 6px;
+    margin-left: 3px;
+    color: #fff;
+    width: auto;
+}
+/* .social-share.twitter{
+    color: #fff;
+    background-color: #64a1d9 !important;
+    margin-right: 6px;
+    margin-left: 3px;
+}
+.social-share.linkedin{
+    color: #fff;
+    background-color: #0369a0 !important;
+    margin-right: 6px;
+    margin-left: 3px;
+} */
+#sidebar-social li i
+{
+    color: #fff;
+    transition: 0.2s ease-out;
+    line-height: 36px;
+}
+
+/* .social-share {
+    background: #3b5998;
+    border-radius: 3px;
+    font-weight: 200;
+    font-size:13px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 0px 2px;
+    display: inline-block;
+    position: static;
+} */
+
+/* .social-share:hover {
+    cursor: pointer;
+    background: #213A6F
+} */
+
+/* .social-share svg {
+    width: 18px;
+    fill: white;
+    vertical-align: middle;
+    border-radius: 2px
+}
+
+.social-share span {
+    vertical-align: middle;
+    color: white;
+    font-size: 14px;
+    padding: 0 3px
+} */
+.social-li{
+    /* min-width: 81px !important; */
+    /* max-width: 81px !important; */
+    height: 25px !important;
+    /* float: left; */
+    clear: right;
+    margin: 5px 5px 5px 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.new-social{
+    padding: 2px 3px 1px 10px;
+    margin-left:7px !important;
+    margin-right: 0px !important;
+}
+.grid-share
+{
+    border:1px;
+    /* border-style: outset; */
+    background-color: #f5f5f5;
+    border-radius:8px;
+    padding: 1px;
+}
+.fb-share{
+    padding: 0px 0px 0px 4px;
+}
+
+
+
+/* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  /* Style the icon bar links */
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Style the social media icons with color, if you want */
+  .icon-bar a:hover {
+    background-color: #000;
+  }
+  
+  .facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .youtube {
+    background: #bb0000;
+    color: white;
+  }
+  .social-arrow
+  {
+    background: grey;
+    color: white;
+  }
+
+/* Hide AddToAny vertical share bar when screen is less than 980 pixels wide */
+@media screen and (max-width: 980px) {
+    /* .icon-bar { display: none; } */
+}
+
+
+.social-share.hide-links {
+    transform: rotatey(180deg);
+    position: relative;
+    left: -50px;
+}
+.social-share.show-links {
+    transform: rotatey(0deg);
+}
+
+.share-btn.hide-links {
+    transform: rotatey(180deg);
+    /* position: relative; */
+    /* left: -50px; */
+}
+.share-btn.show-links {
+    transform: rotatey(0deg);
+}
+
+#jsoneditor1,
+#jsoneditor2 {
+    width: 425px;
+    height: 500px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.card{
+    /* position: initial !important; */
+    z-index: 9;
+}
+
+.card-block
+{
+    min-height: 190px;
+}
+.footer-basic {
+    padding:20px 0;
+    /* background-color:#ffffff; */
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+    color: #ffffff;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:0.9;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+  
+  .entry-meta{
+    font-size: 85%;
+    margin-top: .5em;
+    line-height: 1.5;
+  }
+  .blog-date{
+    width:35%;
+    display:inline-block;
+  }
+  .text-right{
+    float:right;
+  }
+  .single-thumbnail{
+    height: auto;
+    position: relative;
+    /* width: calc(100% - 95px); */
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    background-blend-mode: initial;
+    margin-bottom: 70px;
+  }
+  .single-thumbnail img {
+    width: 100%;
+    max-height: 315px;
+    height: auto!important;
+    /* object-fit: cover; */
+    display: block;
+}
+.blog_title{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+    /* color: #aaaaaa; */
+    font-family: "Poppins", sans-serif;
+  }
+  .result {
+    width: 100%;
+    min-height: 300px;
+}
+.yaml_output {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #dfdfdf;
+  -webkit-text-size-adjust: none;
+  color: black;
+}
