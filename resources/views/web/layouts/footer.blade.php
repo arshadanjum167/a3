@@ -1,58 +1,66 @@
-<style>
-  
-</style>
-<footer id="footer">
-  
-    <div class="container">
-    <div class="row">
-    <!-- <div class="col-sm-2 footer-ul">
-    </div> -->
-    <!-- <div class="col-sm-8 footer-ul"> -->
-      <div class="social-links">
-        <ul class="list-unstyled card-columns mb-0">
-          <li >
-            <a title="Follow us on Twitter" href="{{config('params.twitter_link')}}" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a title="Follow us on Facebook" href="{{config('params.facebook_link')}}" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a title="Follow us on Instagram" href="{{config('params.instagram_link')}}" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a title="Follow us on Youtube" href="{{config('params.youtube_link')}}" class="youtube"><i class="bx bxl-youtube"></i></a>
-            <a title="Follow us on Pinterest" href="{{config('params.pinterest_link')}}" class="pinterest"><i class="bx bxl-pinterest"></i></a>
-            </li>
-        </ul>
-      </div>
-    <!-- </div> -->
-    <div class="footer-basic">
-    <ul class="list-inline list-unstyled card-columns mb-0">
-      <li class="list-inline-item">
-        <a href="{{route('show_about')}}">
-          <!-- <i class="bx bxs-home"></i> -->
-           About Us</a>
-        </li>
-        <li class="list-inline-item">
-        <a href="{{route('show_contactus')}}">
-          <!-- <i class="bx bxs-envelope"></i> -->
-           Contact</a>
-           </li>
-           <li class="list-inline-item">
-        <a href="{{route('show_blog_list')}}">
-          <!-- <i class="bx bxs-envelope"></i> -->
-           Blog</a>
-           </li>
-           
-          
-    </ul>
-    <!-- <div class="col-sm-2 footer-ul">
-    </div> -->
 
-    
-            
-    </div>
-  </div>
-      
-      <div class="copyright center">
-        &copy; {{config('params.appTitle')}}
-      </div>
-      <div class="credits">
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Address</h3>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>C-502, Rajyash Rise,Nr Vishala Circle,Ahmabadad,Gujarat-380007</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 90990 65941</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>aatib.53@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-body me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Services</h3>
+                    <a class="btn btn-link" href="">Architecture</a>
+                    <a class="btn btn-link" href="">3D Animation</a>
+                    <a class="btn btn-link" href="">House Planning</a>
+                    <a class="btn btn-link" href="">Interior Design</a>
+                    <a class="btn btn-link" href="">Construction</a>
+                </div> -->
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Quick Links</h3>
+                    <a class="btn btn-link" href="about.php">About Us</a>
+                    <a class="btn btn-link" href="contact.php">Contact Us</a>
+                    <a class="btn btn-link" href="testimonial.php">Testimonials</a>
+                    <a class="btn btn-link" href="awards.php">Awards</a>
+                    <a class="btn btn-link" href="feature.php">Features & Recognitions</a>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Newsletter</h3>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Copyright <?php echo date("Y");  echo " ".config('params.appTitle')?> </a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        
+                        Developed By <a href="https://zujajah.com" target="_blank" titlt="Zujajah">Zujajah</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
         
-      </div>
     </div>
-  </footer><!-- End Footer -->
+    <!-- Footer End -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle " src="{{asset('/assets/img/logo.png')}}" alt="Icon">
+</div>
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
