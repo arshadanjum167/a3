@@ -365,10 +365,24 @@ class DefaultController extends Controller
       $meta_description = config('params.home_page_meta_description');
       $meta_keyword = config('params.home_page_meta_keyword');
       $data = config('params.contactus');
-      return view('web.default.terms',['data'=>$data,
+      return view('web.default.contact',['data'=>$data,
       'meta_description'=>$meta_description,
       'meta_keyword'=>$meta_keyword,
       'title'=>'Contact Us'
+          ]);
+    }
+    
+    public function showaward(Request $request)
+    {
+      // $model = Cmspage::where('is_deleted',0)->where(['key'=>'privacy'])->first();
+      // return view('web.default.terms',['model'=>$model]);
+      $meta_description = config('params.home_page_meta_description');
+      $meta_keyword = config('params.home_page_meta_keyword');
+      
+      return view('web.default.awards',[
+      'meta_description'=>$meta_description,
+      'meta_keyword'=>$meta_keyword,
+      'title'=>'Awards'
           ]);
     }
     public function showterm(Request $request)
@@ -394,11 +408,11 @@ class DefaultController extends Controller
       $meta_description = config('params.home_page_meta_description');
       $meta_keyword = config('params.home_page_meta_keyword');
       $data = config('params.about');
-      return view('web.default.terms',['data'=>$data,
+      return view('web.default.about',['data'=>$data,
       'meta_description'=>$meta_description,
       'meta_keyword'=>$meta_keyword,
       'title'=>'About'
-          ]);
+      ]);
     }
     public function bloglist(Request $request)
     {

@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="index.php" class="nav-item nav-link active">Home</a>
-            <a href="about.php" class="nav-item nav-link">About</a>
+            <a href="{{route('show_about')}}" class="nav-item nav-link">About</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
                 <div class="dropdown-menu border-0 m-0">
@@ -17,9 +17,9 @@
                 </div>
             </div>
             <a href="testimonial.php" class="nav-item nav-link">Testimonials</a>
-            <a href="awards.php" class="nav-item nav-link">Awards</a>
+            <a href="{{route('show_award')}}" class="nav-item nav-link">Awards</a>
             <a href="feature.php" class="nav-item nav-link">Features & Recognitions</a>
-            <a href="contact.php" class="nav-item nav-link">Contact</a>
+            <a href="{{route('show_contactus')}}" class="nav-item nav-link">Contact</a>
         </div>
     </div>
 </nav>

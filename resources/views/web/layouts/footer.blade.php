@@ -6,8 +6,8 @@
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Address</h3>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>C-502, Rajyash Rise,Nr Vishala Circle,Ahmabadad,Gujarat-380007</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 90990 65941</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>aatib.53@gmail.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>{{config('params.admin_contactus_phone')}}</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>{{config('params.admin_contactus_email')}}</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -25,10 +25,10 @@
                 </div> -->
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Quick Links</h3>
-                    <a class="btn btn-link" href="about.php">About Us</a>
-                    <a class="btn btn-link" href="contact.php">Contact Us</a>
+                    <a class="btn btn-link" href="{{route('show_about')}}">About Us</a>
+                    <a class="btn btn-link" href="{{route('show_contactus')}}">Contact Us</a>
                     <a class="btn btn-link" href="testimonial.php">Testimonials</a>
-                    <a class="btn btn-link" href="awards.php">Awards</a>
+                    <a class="btn btn-link" href="{{route('show_award')}}">Awards</a>
                     <a class="btn btn-link" href="feature.php">Features & Recognitions</a>
                 </div>
                 <!-- <div class="col-lg-3 col-md-6">

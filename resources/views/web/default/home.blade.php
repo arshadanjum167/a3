@@ -77,7 +77,7 @@
                         <h3 class="mb-0">Experience</h3>
                     </div>
                 </div>
-                <a class="btn btn-primary py-3 px-5" href="about.php">Read More</a>
+                <a class="btn btn-primary py-3 px-5" href="{{route('show_about')}}">Read More</a>
             </div>
         </div>
     </div>

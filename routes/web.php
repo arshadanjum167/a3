@@ -19,6 +19,7 @@ Route::get('/','DefaultController@index')->name('web_home');
 //cms pages
 Route::get('about','DefaultController@showabout')->name('show_about');
 Route::get('contactus','DefaultController@showcontactus')->name('show_contactus');
+Route::get('awards','DefaultController@showaward')->name('show_award');
 Route::get('blog','DefaultController@bloglist')->name('show_blog_list');
 
 Route::get('blog/{slug}','DefaultController@showblog')->name('show_blog');

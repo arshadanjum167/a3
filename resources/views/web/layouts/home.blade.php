@@ -34,10 +34,10 @@
     <link href="{{asset('/assets/css/web/style.css') }}" rel="stylesheet">
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/+919099065941" class="whatsapp-button" target="_blank">
+    <a href="https://wa.me/{{config('params.admin_whatsapp_phone')}}" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+919099065941" class="call-button">
+    <a href="tel:{{config('params.admin_call_phone')}}" class="call-button">
         <i class="fa fa-phone"></i> <!-- Replace with your icon class if needed -->
     </a>
 
