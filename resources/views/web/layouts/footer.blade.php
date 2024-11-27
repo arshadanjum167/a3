@@ -29,7 +29,7 @@
                     <a class="btn btn-link" href="{{route('show_contactus')}}">Contact Us</a>
                     <a class="btn btn-link" href="testimonial.php">Testimonials</a>
                     <a class="btn btn-link" href="{{route('show_award')}}">Awards</a>
-                    <a class="btn btn-link" href="feature.php">Features & Recognitions</a>
+                    <a class="btn btn-link" href="{{route('show_recognition')}}">Features & Recognitions</a>
                 </div>
                 <!-- <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Newsletter</h3>

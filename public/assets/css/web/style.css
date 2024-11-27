@@ -698,3 +698,36 @@ h6,
 .project-image:hover {
     transform: scale(2.5); /* 50% zoom-in */
 }
+
+/* background-size: 100% 200%; Larger height to enable the animation effect */
+/* background-image: linear-gradient(180deg, #ffffff, #B78D65, #ffffff); */
+.water-effect {
+    position: relative;
+    overflow: hidden;
+    color: transparent !important;
+    -webkit-text-fill-color:transparent !important;
+    background-image: linear-gradient(90deg, transparent, #000, transparent);
+    -webkit-text-stroke:0.5px #000;
+    background-size: 200% 100%; /* Larger height to enable the animation effect */
+    -webkit-background-clip: text !important; 
+    background-clip: text;
+    animation: water-drop 8s infinite linear;
+    font-family: serif !important;
+    }
+    
+    /* @keyframes water-drop {
+        0% {
+          background-position: 50% 0%;
+        }
+        100% {
+          background-position: 50% 100%;
+        }
+      } */
+      @keyframes water-drop {
+        0% {
+          background-position: -100% 0%; /* Start from the left */
+        }
+        100% {
+          background-position: 100% 0%; /* Move to the right */
+        }
+      }

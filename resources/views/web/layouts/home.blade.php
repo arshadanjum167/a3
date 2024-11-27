@@ -11,7 +11,15 @@
     <meta content="{{ $meta_keyword??'' }}" name="keywords">
     <meta name="msvalidate.01" content="AE47B1AC151CA48DA1C80131F36CDF38" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
-
+    <meta name="language" content="English" />
+    <meta name="GOOGLEBOT" content="index, follow" />
+    <meta name="Search Engine" content="https://www.google.co.in" />
+    <meta name="OWNER" content="{{config('params.appTitle')}}" />
+    <meta name="author" content="{{config('params.appTitle')}}" />
+    <meta name="copyright" content="{{config('params.appTitle')}}" />
+    <meta name="expires" content="Never" />
+    <meta name="RATING" content="General" />
+    <meta name="REVISIT-AFTER" content="1 day" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

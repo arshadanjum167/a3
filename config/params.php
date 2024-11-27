@@ -2,6 +2,7 @@
 
 return [
   'appTitle'=>'A3 Projects',
+  'homeTitle'=>'Best Architects in Gujarat, Top Interior Designer Gujarat',
   'adminEmail'=>'aatib.53@gmail.com',
   'adminmailemail'=>'aatib.53@gmail.com',
   'admin_contactus_email'=>'aatib.53@gmail.com',
@@ -30,11 +31,9 @@ return [
   'pinterest_link'=>'https://www.pinterest.com/xxxx',
 
 
-  'home_page_meta_description'=>'',
-
-   'home_page_content'=>'',
-
-  'home_page_meta_keyword'=>'',
+  'home_page_meta_description'=>'Looking for top architects in Gujarat? Contact A3 Projects, the best interior designer in Gujarat for award-winning architecture and design services. Get your dream home today!',
+  'home_page_content'=>'',
+  'home_page_meta_keyword'=>'architects in Gujarat, interior designers in Gujarat, top architects, best interior designer, award-winning architecture, architecture services in Gujarat, design services in Gujarat, dream home design, A3 Projects, Gujarat architecture firm, Gujarat interior design services, home design in Gujarat',
 
   // 'home_page_content'=>'Online tools to help developer and web users',
 

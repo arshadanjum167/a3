@@ -385,6 +385,20 @@ class DefaultController extends Controller
       'title'=>'Awards'
           ]);
     }
+    public function showrecognition(Request $request)
+    {
+      // $model = Cmspage::where('is_deleted',0)->where(['key'=>'privacy'])->first();
+      // return view('web.default.terms',['model'=>$model]);
+      $meta_description = config('params.home_page_meta_description');
+      $meta_keyword = config('params.home_page_meta_keyword');
+      
+      return view('web.default.recognition',[
+      'meta_description'=>$meta_description,
+      'meta_keyword'=>$meta_keyword,
+      'title'=>'Features & Recognitions'
+          ]);
+    }
+    
     public function showterm(Request $request)
     {
       $model = Cmspage::where('is_deleted',0)->where(['key'=>'term'])->first();

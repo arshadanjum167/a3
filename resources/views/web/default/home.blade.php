@@ -1,5 +1,5 @@
 @extends('web.layouts.home')
-@section('title', config('params.appTitle') )
+@section('title', config('params.appTitle') . ' - ' . config('params.homeTitle') )
 @section('main_contant')
 @php 
 @endphp
@@ -12,7 +12,7 @@
                   <div class="container">
                       <div class="row justify-content-start">
                           <div class="col-10 col-lg-8">
-                              <h1 class="display-1 text-white animated slideInDown">Innovative Architecture, Inspired Interiors</h1>
+                              <h1 class="display-1 text-white animated1 slideInDown water-effect">Innovative Architecture, Inspired Interiors</h1>
                               <p class="fs-5 fw-medium text-white mb-4 pb-3">At A3 Projects, we blend creativity with precision to bring you cutting-edge architectural designs and beautifully crafted interiors. Our team is dedicated to transforming spaces into inspiring environments that reflect style, functionality, and individuality. Whether building from the ground up or reimagining existing spaces, we turn visions into reality with expert craftsmanship and design insight.</p>
                               <!-- <a href="" class="btn btn-primary py-3 px-5 animated slideInLeft">Read More</a> -->
                           </div>
@@ -26,7 +26,7 @@
                   <div class="container">
                       <div class="row justify-content-start">
                           <div class="col-10 col-lg-8">
-                              <h1 class="display-1 text-white animated slideInDown">Shaping Spaces, Building Futures</h1>
+                              <h1 class="display-1 text-white animated1 slideInDown water-effect">Shaping Spaces, Building Futures</h1>
                               <p class="fs-5 fw-medium text-white mb-4 pb-3">A3 Projects is committed to creating environments that stand the test of time, both in design and purpose. Through innovative architecture, thoughtful interiors, and high-quality construction, we shape spaces that support your vision and enrich lives. With a focus on sustainability, functionality, and style, we build for the present with a vision for the future.</p>
                               <!-- <a href="" class="btn btn-primary py-3 px-5 animated slideInLeft">Read More</a> -->
                           </div>
@@ -40,7 +40,7 @@
                   <div class="container">
                       <div class="row justify-content-start">
                           <div class="col-10 col-lg-8">
-                              <h1 class="display-1 text-white animated slideInDown">Creating Timeless Designs for Every Space</h1>
+                              <h1 class="display-1 text-white animated1 slideInDown water-effect">Creating Timeless Designs for Every Space</h1>
                               <p class="fs-5 fw-medium text-white mb-4 pb-3">At A3 Projects, we believe great design transcends time. Our team specializes in crafting enduring architectural and interior solutions that blend elegance with functionality, tailored to each client’s unique vision. From concept to completion, we bring passion and precision to every project, creating spaces that inspire and stand the test of time.</p>
                               <!-- <a href="" class="btn btn-primary py-3 px-5 animated slideInLeft">Read More</a> -->
                           </div>
