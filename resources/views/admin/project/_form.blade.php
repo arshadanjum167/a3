@@ -1,26 +1,7 @@
 {!! Form::model($model,['route' => [$route,$model->id],'method'=>$method,'class'=>'','enctype'=>'multipart/form-data']) !!}
   <div class="card-body">
     <div class="left-form-content pull-left">
-        <div class="clearfix">
-            <div class="fileinput text-center fileinput-new" data-provides="fileinput">
-                <div class="btn-file mt-3">
-                    <div class="thumbnail fileinput-new uploaded-user-image rounded-circle" style="width: 150px; height: 150px;">
-                        <img src="{{ URL::asset($data['image']) }}" alt="">
-                    </div>
-                    <div class="clearfix"></div>
-                    <button class="fileinput-new btn btn-primary2 btn-sm btn-file mt-3"> Browse Image </button>
-                    <input type="hidden" value="" name="...">
-                    <input type="file" file-model="myFile" name="image" accept="image/x-png,image/gif,image/jpeg">
-                    <div class="fileinput-preview fileinput-exists thumbnail uploaded-user-image rounded-circle" style="width: 150px; height: 150px;"></div>
-                </div>
-                <div class="text-center">
-                    <button href="javascript:;" class="btn btn-link btn-sm fileinput-exists mt-3" data-dismiss="fileinput"> Remove </button>
-                </div>
-                <div class="clearfix mt-3">
-                    <!-- <p class="upload-img-label text-muted">*Recommended Size:<br>Minimum 250 * 250</p> -->
-                </div>
-            </div>
-        </div>
+        
         @include('global.show_error',['var_name'=>'image'])
     </div>
       <div class="row">
@@ -38,10 +19,52 @@
                             @include('global.show_error',['var_name'=>'description'])
                         </div>
                         <div class="form-group">
+                            <label>Address</label>
+                            {{ Form::textarea('address',null,['class'=>'form-control','id'=>'address','cols'=>'80','rows'=>'2']) }}
+                            @include('global.show_error',['var_name'=>'address'])
+                        </div>
+                        <div class="form-group">
                             <label>Name of Route</label>
                             {{ Form::text('route_name',null,['class'=>'form-control','id'=>'route_name']) }}
                             @include('global.show_error',['var_name'=>'route_name'])
                         </div>
+                                <div class="form-group">
+                                <label>Project images</label>
+                                    <div class="clearfix">
+                                    
+                                    <?php 
+                                        for($i=0; $i < config('params.project_image_count'); $i++) { ?>
+                                            <div class="fileinput text-center fileinput-new mr-5" data-provides="fileinput">
+                                                    <div class="btn-file mt-3">
+                                                        <div class="thumbnail fileinput-new uploaded-user-image rounded-circle" style="width: 150px; height: 150px;">
+                                                            <img src="{{ URL::asset($data['image'][$i]) }}" alt="">
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <?php if(isset($data['isImageExist']) && $data['isImageExist'][$i] == 0){?>
+                                                        <button class="fileinput-new btn btn-primary2 btn-sm btn-file mt-3"> Browse Image </button>
+                                                        <?php }?>
+                                                        
+                                                        <input type="hidden" value="" name="...">
+
+                                                        <input type="file" file-model="myFile" name="image[<?php echo $i;?>]" accept="image/x-png,image/gif,image/jpeg">
+                                                        <div class="fileinput-preview fileinput-exists thumbnail uploaded-user-image rounded-circle" style="width: 150px; height: 150px;"></div>
+                                                </div>
+                                                <?php if(isset($data['isImageExist']) && $data['isImageExist'][$i] == 0){?>
+                                                <?php } else {?>
+                                                    <button type="button" data-id="<?php echo $data['mediaId'][$i];?>" class="btn btn-accent btn-sm btn-file mt-3 remove-image"> Remove Image </button>
+                                                <?php } ?>
+                                                <div class="text-center">
+                                                    <button href="javascript:;" class="btn btn-link btn-sm fileinput-exists mt-3" data-dismiss="fileinput"> Remove </button>
+                                                </div>
+                                                <div class="clearfix mt-3">
+                                                    <!-- <p class="upload-img-label text-muted">*Recommended Size:<br>Minimum 250 * 250</p> -->
+                                                </div>
+                                            </div>
+                                        <?php 
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
                         
                   </div>
               </div>
@@ -82,5 +105,33 @@
         CKEDITOR.config.protectedSource.push( /<ins class=\"adsbygoogle\"\>.*?<\/ins\>/g );
 
     });
+
+    $(document).on('click', '.remove-image', function () {
+    var mediaId = $(this).data('id');
+    if (confirm('Are you sure you want to remove this image?')) {
+        $.ajax({
+            type: 'GET',         // HTTP method
+            async: false,
+            url: "{{  route('admin.project.remove_image') }}",
+            data: {
+                media_id: mediaId,
+                project_id: <?php echo ($model->id)?$model->id:0?>,
+            },
+            success: function (response) {
+                if (response.success) {
+                    location.reload(); // Reloads the current page
+                    // Optionally remove the image from the DOM
+                    // $(this).closest('div').remove(); // Adjust the selector as needed
+                } else {
+                    alert('Failed to remove the image.');
+                }
+            },
+            error: function (xhr) {
+                console.error(xhr.responseText);
+                alert('An error occurred while processing the request.');
+            }
+        });
+    }
+});
 </script>
 @endsection

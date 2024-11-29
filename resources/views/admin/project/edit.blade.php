@@ -1,5 +1,5 @@
 @php
-$title = 'Edit Blog';
+$title = 'Edit Project';
 @endphp
 
 @extends('admin.layouts.main')

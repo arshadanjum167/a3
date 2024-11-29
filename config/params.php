@@ -10,6 +10,7 @@ return [
   'admin_whatsapp_phone'=>'+919099065941',
   'admin_call_phone'=>'+919099065941',
   'page_size'=>5,
+  'project_image_count'=>10,
   'msg_success'=>'<div class="alert alert-success alert-dismissable">',
   'msg_error'=>'<div class="alert alert-danger alert-dismissable">',
   'msg_end' => '</div>',

@@ -20,11 +20,11 @@ $selected='';
 			    <div class="col-3">
     				<div class="card-deck">
               <div class="card">  
-                <a href=""> 
+                <a href="{{  route('admin.project.index') }}"> 
                   <div class="card-body">
-                      <h2 class="card-title m-b-5 counter text-primary">{{ $count['total_blog']??0 }}</h2>
+                      <h2 class="card-title m-b-5 counter text-primary">{{ $count['total_projects']??0 }}</h2>
                       <h6 class="text-muted m-t-15 mb-0 lh-normal">
-                              Total Number of Blogs
+                              Total Number of Projects
                       </h6>
                   </div>
                 </a>
@@ -32,20 +32,7 @@ $selected='';
             </div>
           </div>
 
-          <div class="col-3">
-    				<div class="card-deck">
-              <div class="card">  
-                <a href=""> 
-                  <div class="card-body">
-                      <h2 class="card-title m-b-5 counter text-primary">{{ number_format($count['total_blog_views'])??0 }}</h2>
-                      <h6 class="text-muted m-t-15 mb-0 lh-normal">
-                              Total Number of Blog Views
-                      </h6>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+          
 
           
 

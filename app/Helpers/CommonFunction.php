@@ -4,7 +4,7 @@ namespace App\Helpers;
 use Cookie;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
-use App\Models\Blog;
+use App\Models\Project;
 use App\Models\Emailtemplate;
 use App\Models\Token;
 use Illuminate\Support\Facades\Mail;
@@ -401,8 +401,7 @@ class CommonFunction
   public static function getDashboardCount()
   {
     $result = array();
-    $result['total_blog'] = 0;// Blog::where(['is_deleted'=>0])->count();
-    $result['total_blog_views'] = 0;//Blog::where(['is_deleted'=>0,'is_active'=>1])->sum('read_count');
+    $result['total_projects'] = Project::where(['is_deleted'=>0])->count();
 
     return $result;
   }

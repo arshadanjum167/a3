@@ -77,6 +77,7 @@ Route::group([
     ]);
 
     Route::get('project/status_change', 'ProjectController@statusChange')->name('project.status_change');
+    Route::get('project/remove_image', 'ProjectController@removeImage')->name('project.remove_image');
     $router->resource('project','ProjectController',[
       'parameters'=>[
           'project'=>'id',

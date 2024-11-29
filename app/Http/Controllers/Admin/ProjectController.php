@@ -52,8 +52,13 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $data['image']='/assets/img/no-image.png';
-        return view('admin.project.create',['model' => new Project,'data'=>$data]);
+
+        for($i=0; $i < config('params.project_image_count'); $i++){
+          $data['image'][$i]='/assets/img/no-image.png';
+          $data['isImageExist'][$i]=0;
+        }
+        $model = new Project;
+        return view('admin.project.create',['model' => $model,'data'=>$data]);
     }
 
     /**
@@ -65,24 +70,6 @@ class ProjectController extends Controller
     public function store(StoreRequest $request,Project $model)
     {
       $data = $this->fillableFields($request);
-      // if ($request->hasFile('image') && $request->file('image')!='')
-      // {
-      // //   $old_image = public_path('/images/').$model->image;
-      // //   if(isset($old_image) && $old_image!='' && isset($model->image) && $model->image!='')
-      // //   {
-      // //     if(file_exists($old_image)) 
-      // //     { 
-      // //         unlink($old_image);
-      // //     }
-      // //   }
-      //   $file = $request->file('image');
-      //   $imageName=time().$file->getClientOriginalName();
-      //   $value = CommonFunction::uploadImageonlocal($file,$imageName);
-      //   // $value = CommonFunction::uploadImageInS3bucket($file,$imageName);
-        
-      //   $model->image=$value;
-      // }
-      
       $model->fill($data);
       if($model->route_name == ''){
         $model->route_name = $model->title;
@@ -94,7 +81,37 @@ class ProjectController extends Controller
       $model->u_date = date('Y-m-d H:i:s');
       
       if($model->save())
-      {
+      { 
+          if ($request->hasFile('image') && $request->file('image')!='')
+          {
+            // $old_image = public_path('/images/').$model->image;
+            // if(isset($old_image) && $old_image!='' && isset($model->image) && $model->image!='')
+            // {
+            //   if(file_exists($old_image)) 
+            //   { 
+            //       unlink($old_image);
+            //   }
+            // }
+            for($i=0; $i < config('params.project_image_count'); $i++){
+              if(isset($request->file('image')[$i]) && $request->file('image')[$i]!=''){
+                $file = $request->file('image')[$i];
+                $imageName=time().$file->getClientOriginalName();
+                $value = CommonFunction::uploadImageonlocal($file,$imageName);
+                // $value = CommonFunction::uploadImageInS3bucket($file,$imageName);
+                $media = new ProjectMedia;
+                $media->project_id = $model->id;
+                $media->type = 1;//1=image
+                $media->link=$value;
+                $media->i_by=Auth::guard('admin')->user()->id;
+                $media->u_by=Auth::guard('admin')->user()->id;
+                $media->i_date = date('Y-m-d H:i:s');
+                $media->u_date = date('Y-m-d H:i:s');
+                $media->save();
+              }
+
+            }
+          }
+         
           $message=config('params.msg_success').'Project successfully created !'.config('params.msg_end');
           $request->session()->flash('message',$message);
           return redirect()->route('admin.project.index');
@@ -121,12 +138,54 @@ class ProjectController extends Controller
         $request->session()->flash('message',$message);
         return redirect()->route('admin.project.index');
       }
-      $data['image']='/assets/img/no-image.png';
-      if($model->image!='')
-      {
-        $data['image']=$model->image;
+      $media=ProjectMedia::where(['is_deleted'=>0,'is_active'=>1])->where(['project_id'=>$model->id])->get()->toArray();
+      
+      for($i=0; $i < config('params.project_image_count'); $i++){
+        // echo "<pre>";
+        
+        $data['image'][$i]='/assets/img/no-image.png';
+        $data['isImageExist'][$i]=0;
+        $data['mediaId'][$i]=null;
+        // $data['image'][$i]=';';
+        if(isset($media[$i]) && $media[$i]['link']!='')
+        {
+          $data['image'][$i]=$media[$i]['link'];
+          $data['isImageExist'][$i]=1;
+          $data['mediaId'][$i]=$media[$i]['id'];
+        }
       }
+      // dd($data);
       return view('admin.project.edit',['model' => $model,'data'=>$data]);
+    }
+    public function removeImage(Request $request)
+    {
+      // dd($request->input('media_id'));
+      if($request->input('media_id') != '' &&  $request->input('project_id') != ''){
+        $media=ProjectMedia::where(['is_deleted'=>0,'is_active'=>1])->where(['project_id'=>$request->input('project_id'),'id'=>$request->input('media_id')])->first();
+        if(isset($media) && $media!=''){
+          $old_image = $media->link;
+          $base_url = url('/'); // Dynamically fetch the base URL with a trailing slash
+          $relative_path = str_replace($base_url, "", $old_image); // Remove base URL
+          $old_image = public_path($relative_path); // Get the absolute path
+          if(isset($old_image) && $old_image!='' && isset($media->link) && $media->link!='')
+          {
+            if(file_exists($old_image)) 
+            { 
+                unlink($old_image);
+            }
+          }
+          $media->is_deleted=1;
+          $media->u_by=Auth::guard('admin')->user()->id;
+          $media->u_date = date('Y-m-d H:i:s');
+          $media->save();
+          return response()->json(['success' => true]);
+        }else{
+          return response()->json(['success' => false, 'message' => 'Image not found or could not be deleted.']);  
+        }
+      }else{
+        return response()->json(['success' => false, 'message' => 'Image not found or could not be deleted.']);
+      }
+
     }
 
     /**
@@ -139,7 +198,7 @@ class ProjectController extends Controller
     public function update(UpdateRequest $request, $id)
     {
       $model=Project::find($id);
-
+      // dd($request->file('image'));
       if(!$model)
       {
         $message=config('params.msg_error').'Project not found !'.config('params.msg_end');
@@ -182,6 +241,35 @@ class ProjectController extends Controller
       // }
       if($model->save())
       {
+        if ($request->hasFile('image') && $request->file('image')!='')
+          {
+            // $old_image = public_path('/images/').$model->image;
+            // if(isset($old_image) && $old_image!='' && isset($model->image) && $model->image!='')
+            // {
+            //   if(file_exists($old_image)) 
+            //   { 
+            //       unlink($old_image);
+            //   }
+            // }
+            for($i=0; $i < config('params.project_image_count'); $i++){
+              if(isset($request->file('image')[$i]) && $request->file('image')[$i]!=''){
+                $file = $request->file('image')[$i];
+                $imageName=time().$file->getClientOriginalName();
+                $value = CommonFunction::uploadImageonlocal($file,$imageName);
+                // $value = CommonFunction::uploadImageInS3bucket($file,$imageName);
+                $media = new ProjectMedia;
+                $media->project_id = $model->id;
+                $media->type = 1;//1=image
+                $media->link=$value;
+                $media->i_by=Auth::guard('admin')->user()->id;
+                $media->u_by=Auth::guard('admin')->user()->id;
+                $media->i_date = date('Y-m-d H:i:s');
+                $media->u_date = date('Y-m-d H:i:s');
+                $media->save();
+              }
+
+            }
+          }
         $message=config('params.msg_success').'Project successfully updated !'.config('params.msg_end');
         $request->session()->flash('message',$message);
         return redirect()->route('admin.project.index');

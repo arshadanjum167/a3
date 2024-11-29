@@ -16,8 +16,6 @@ class DashboardController extends Controller
     public function index()
     {
         $count = CommonFunction::getDashboardCount();
-        // $total_user_graph = CommonFunction::getCharddataTotalUser();
-        // $total_earning_graph = CommonFunction::getCharddataTotalEarning();
         return view('admin.dashboard.index',['count'=>$count]);
     }
 
