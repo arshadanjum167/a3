@@ -15,7 +15,7 @@
                         </div>
                         <div class="form-group">
                             <label>Content</label>
-                            {{ Form::textarea('description',null,['class'=>'cke_wrapper','id'=>'editor1','cols'=>'80','rows'=>'10']) }}
+                            {{ Form::textarea('description',null,['class'=>'cke_wrapper form-control','id'=>'editor111','cols'=>'80','rows'=>'10']) }}
                             @include('global.show_error',['var_name'=>'description'])
                         </div>
                         <div class="form-group">

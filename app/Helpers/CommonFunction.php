@@ -405,7 +405,21 @@ class CommonFunction
 
     return $result;
   }
-  
+  public static function getGetFavouriteProjects()
+  {
+    $result = array();
+    $result = Project::where(['is_deleted'=>0,'is_active'=>1,'is_favourite'=>1])->get()->toArray();
+    return $result;
+  }
+  public static function getGetAllProjects()
+  {
+    $result = array();
+    $result = Project::
+    where(['is_deleted'=>0,'is_active'=>1])
+    ->with(['firstMedia'])
+    ->get()->toArray();
+    return $result;
+  }
   
   
   

@@ -12,8 +12,14 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
                 <div class="dropdown-menu border-0 m-0">
-                    <a href="project.php" class="dropdown-item">Project 1</a>
-                    <a href="project.php" class="dropdown-item">Project 2</a>
+                    <?php 
+                    if(isset($projects) && $projects){
+                        foreach($projects as $value){
+                    ?>
+                    
+                    <a href="{{url('project/'.$value['route_name'])}}" class="dropdown-item"><?php echo $value['title']?></a>
+                    <?php }
+                    } ?>
                 </div>
             </div>
             <a href="testimonial.php" class="nav-item nav-link">Testimonials</a>

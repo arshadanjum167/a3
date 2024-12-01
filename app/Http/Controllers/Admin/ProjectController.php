@@ -344,4 +344,23 @@ class ProjectController extends Controller
         return response(0);
       }
     }
+    public function updateFavourite(Request $request)
+    {
+      $model=Project::find($request->query('id'));
+
+      if(!$model)
+      {
+        return response(0);
+      }
+      $model->is_favourite = $request->query('status');
+      $model->u_date = date('Y-m-d H:i:s');
+
+      if($model->save())
+      {
+        return response(1);
+      }
+      else {
+        return response(0);
+      }
+    }
 }

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Session;
 use App\Models\User;
-use App\Models\Blog;
+use App\Models\Project;
 use App\Models\Blogauthor;
 use App\Models\Cmspage;
 use App\Http\Requests\Admin\Auth\ResetPasswordRequest;
@@ -444,9 +444,9 @@ class DefaultController extends Controller
           ]);
     }
     
-    public function showblog(Request $request,$slug)
+    public function showproject(Request $request,$slug)
     {
-      $model = Blog::where('is_active',1)->where('is_deleted',0)->where(['route_name'=>$slug])->first();
+      $model = Project::where('is_active',1)->where('is_deleted',0)->where(['route_name'=>$slug])->first();
       if(!$model)
       {
         // return response(['error' => true, 'error-msg' => 'Not found'], 404);
@@ -459,20 +459,20 @@ class DefaultController extends Controller
         return view('errors.error');
       }
       //get blog author detail
-      $blogAuther = Blogauthor::where('is_active',1)->where('is_deleted',0)->where(['id'=>$model->author_id])->first();
+      // $blogAuther = Blogauthor::where('is_active',1)->where('is_deleted',0)->where(['id'=>$model->author_id])->first();
       
       
       $meta_description = $model->meta_description;
       $meta_keyword = $model->meta_keyword;
       $data = config('params.about');
-      $model->read_count+=1;
-      $model->save();
-      return view('web.default.blog',['data'=>$data,
+      // $model->read_count+=1;
+      // $model->save();
+      return view('web.default.project',['data'=>$data,
       'meta_description'=>$meta_description,
       'meta_keyword'=>$meta_keyword,
       'title'=>$model->title,
       'model'=>$model,
-      'blogAuther'=>$blogAuther,
+      // 'blogAuther'=>$blogAuther,
           ]);
     }
 }

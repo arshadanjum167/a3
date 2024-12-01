@@ -38,6 +38,7 @@ if(Request::has('sort') && Request::get('sort') !=null ){
                                     <tr>
                                         <th class="sortable">Title</th>
                                         <th class="sortable">Address</th>
+                                        <th class="sortable">Favourite</th>
                                         <th class="text-center" style="width:115px;">Status</th>
                                         <th class="text-center" style="width:120px;">Actions</th>
                                     </tr>
@@ -48,7 +49,13 @@ if(Request::has('sort') && Request::get('sort') !=null ){
                                     <tr>
                                         <td>{{$value->title}}</td>
                                         <td>{{$value->address}}</td>
-                                        
+                                        <td class="text-center">
+                                            @if($value->is_favourite==1)
+                                              <a href="javascript:void(0)" onclick="update_favourite(0,{{ $value->id}})" > <small class="label label-success">Yes</small></a>
+                                            @else
+                                              <a href="javascript:void(0)" onclick="update_favourite(1,{{ $value->id}})" > <small class="label label-danger">No</small></a>
+                                            @endif
+                                        </td> 
                                         <td class="text-center">
                                             @if($value->is_active==1)
                                               <a href="javascript:void(0)" onclick="status_change(0,{{ $value->id}})" > <small class="label label-success">Active</small></a>
@@ -108,5 +115,5 @@ if(Request::has('sort') && Request::get('sort') !=null ){
 
 @section('custom_scripts')
   @include('global.delete_confirmation')
-  @include('global.active_inactive',['route'=>'admin.project.status_change']) 
+  @include('global.active_inactive',['route'=>'admin.project.status_change','fav_route'=>'admin.project.update_favourite']) 
 @endsection

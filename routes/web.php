@@ -23,4 +23,5 @@ Route::get('awards','DefaultController@showaward')->name('show_award');
 Route::get('recognition','DefaultController@showrecognition')->name('show_recognition');
 Route::get('blog','DefaultController@bloglist')->name('show_blog_list');
 
-Route::get('blog/{slug}','DefaultController@showblog')->name('show_blog');
+Route::get('project/{slug}','DefaultController@showproject')->name('show_project');
+

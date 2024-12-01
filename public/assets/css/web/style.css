@@ -731,3 +731,74 @@ h6,
           background-position: 100% 0%; /* Move to the right */
         }
       }
+
+
+
+
+
+
+
+
+
+
+/* text reavl animation */
+
+.text-reveal-container {
+    margin: auto;
+    position: relative;
+    bottom: 0;
+    left: -100px;
+    top: 0;
+    right: 0;
+    /* width: 500px; */
+    height: 100px;
+    
+    .text-reveal-string {
+      position: absolute;
+      font-size: 40px;
+      display: inline-block;
+      white-space: nowrap;
+      font-weight: bold;
+      overflow: hidden;
+      top: 50px;
+      left: 115px;
+      color: darken(#414141, 10%);
+      animation: textreveal 4s infinite linear;
+    }
+  
+    .text-reveal-ball {
+      position: absolute;
+      top: 27.5px;
+      left: 50px;
+      height: 98px;
+      width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #f57724;
+      border-radius: 50%;
+      animation: ballmove 4s infinite linear;
+      z-index: 1;
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.3);
+    }
+    
+   
+    
+  }
+  @keyframes ballmove {
+    0%{transform: translate(0px, 8.5px) scale(0.1);}
+    10%{transform: translateX(0px) scale(0.5);}
+    40%{transform: translateX(620px) scale(0.5);}
+    60%{transform: translate(620px, 8.5px) scale(0.1);}
+    70%{transform: translate(620px, 8.5px) scale(0.15);}
+    80%{transform: translate(620px, 8.5px) scale(0.1);}
+    90%{transform: translate(620px, 8.5px) scale(0.15);}
+    100%{transform: translate(620px, 8.5px) scale(0.1);}
+  }
+  
+  @keyframes textreveal {
+    0% {width: 0;}
+    10% {width: 0;}
+    40% {width: 610px;}
+    100% {width: 610px;}
+  }
+  /* text reavl animation */

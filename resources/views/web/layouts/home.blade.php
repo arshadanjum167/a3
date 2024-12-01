@@ -77,6 +77,9 @@
 <body>
 
 <!-- <div > -->
+      <?php
+      $projects = CommonFunction::getGetFavouriteProjects();
+      ?>
       @include('web.layouts.top_header')
   
       <!-- <main id="main">
@@ -89,7 +92,6 @@
       
 
         @yield('main_contant')
-
         
         
         <!-- </div>

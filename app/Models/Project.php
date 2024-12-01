@@ -19,4 +19,13 @@ class Project extends Model
         'is_deleted' => 'boolean',
         'is_active' => 'boolean',
     ];
+
+    public function media()
+    {
+        return $this->hasMany('App\Models\ProjectMedia','project_id')->where('is_deleted',0)->orderBy('id');
+    }
+    public function firstMedia()
+{
+    return $this->hasOne('App\Models\ProjectMedia','project_id')->where('is_deleted',0)->orderBy('id', 'asc');
+}
 }
