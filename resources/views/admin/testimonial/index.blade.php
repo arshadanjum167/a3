@@ -1,5 +1,5 @@
 @php
-  $title = 'Project';
+  $title = 'Testimonial';
   $search=$active_value=$active=$inactive='';
   $sort='DESC';
   $sort_val = "descending";
@@ -25,7 +25,7 @@ if(Request::has('sort') && Request::get('sort') !=null ){
 @section('main_contant')
 
 <div class="content">
-    @include('admin.project._header')
+    @include('admin.testimonial._header')
     <section class="page-content container-fluid">
         @include('global.show_session')
         <div class="row">
@@ -37,8 +37,6 @@ if(Request::has('sort') && Request::get('sort') !=null ){
                                 <thead>
                                     <tr>
                                         <th class="sortable">Title</th>
-                                        <th class="sortable">Address</th>
-                                        <th class="sortable">Favourite</th>
                                         <th class="text-center" style="width:115px;">Status</th>
                                         <th class="text-center" style="width:120px;">Actions</th>
                                     </tr>
@@ -48,14 +46,7 @@ if(Request::has('sort') && Request::get('sort') !=null ){
                                     @foreach($data as $value)
                                     <tr>
                                         <td>{{$value->title}}</td>
-                                        <td>{{$value->address}}</td>
-                                        <td class="text-center">
-                                            @if($value->is_favourite==1)
-                                              <a href="javascript:void(0)" onclick="update_favourite(0,{{ $value->id}})" > <small class="label label-success">Yes</small></a>
-                                            @else
-                                              <a href="javascript:void(0)" onclick="update_favourite(1,{{ $value->id}})" > <small class="label label-danger">No</small></a>
-                                            @endif
-                                        </td> 
+                                        
                                         <td class="text-center">
                                             @if($value->is_active==1)
                                               <a href="javascript:void(0)" onclick="status_change(0,{{ $value->id}})" > <small class="label label-success">Active</small></a>
@@ -69,8 +60,8 @@ if(Request::has('sort') && Request::get('sort') !=null ){
                                                     <i class="icon dripicons-dots-3 zmdi-hc-fw"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-icon-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="{{ route('admin.project.edit',['id'=>$value->id]) }}"><i class="zmdi zmdi-edit zmdi-hc-fw text-secondary"></i> Edit</a>
-                                                    {{ Form::open(array('route' =>['admin.project.destroy',$value->id])) }}
+                                                    <a class="dropdown-item" href="{{ route('admin.testimonial.edit',['id'=>$value->id]) }}"><i class="zmdi zmdi-edit zmdi-hc-fw text-secondary"></i> Edit</a>
+                                                    {{ Form::open(array('route' =>['admin.testimonial.destroy',$value->id])) }}
                                                      {{ Form::hidden('_method', 'DELETE') }} 
                                                     <button type="submit" class="dropdown-item btn-delete pointer" ><i class="zmdi zmdi-delete zmdi-hc-fw text-secondary"></i> Delete</button>
                                                     {{-- <button class="dropdown-item btn-delete pointer" type="submit"><i class="zmdi zmdi-delete zmdi-hc-fw text-secondary"></i> Delete</button> --}}
@@ -114,31 +105,6 @@ if(Request::has('sort') && Request::get('sort') !=null ){
 @endsection
 
 @section('custom_scripts')
-<script>
-function update_favourite(status,id)
-    {
-        var id1 = id;
-        var val1 = status;
-        
-        $.ajax({
-            url: "{{ route('admin.project.update_favourite')}}",
-            type: "GET",
-            data: {status:val1,id:id1},
-            success: function(value){
-                // console.log(value);
-                if(value==0){
-                    alert("error");
-                }
-                else{
-                    location.reload();
-                }
-            },
-            error: function(value){
-                console.log('error');
-            }
-        });
-    }
-  </script>
   @include('global.delete_confirmation')
-  @include('global.active_inactive',['route'=>'admin.project.status_change']) 
+  @include('global.active_inactive',['route'=>'admin.testimonial.status_change']) 
 @endsection

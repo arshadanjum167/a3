@@ -76,12 +76,21 @@ Route::group([
       ],
     ]);
 
+    //project
     Route::get('project/status_change', 'ProjectController@statusChange')->name('project.status_change');
     Route::get('project/update_favourite', 'ProjectController@updateFavourite')->name('project.update_favourite');
     Route::get('project/remove_image', 'ProjectController@removeImage')->name('project.remove_image');
     $router->resource('project','ProjectController',[
       'parameters'=>[
           'project'=>'id',
+      ],
+    ]);
+
+    //testimonial
+    Route::get('testimonial/status_change', 'TestimonialController@statusChange')->name('testimonial.status_change');
+    $router->resource('testimonial','TestimonialController',[
+      'parameters'=>[
+          'testimonial'=>'id',
       ],
     ]);
     

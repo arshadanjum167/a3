@@ -31,6 +31,22 @@ $selected='';
               </div>
             </div>
           </div>
+          
+
+          <div class="col-3">
+    				<div class="card-deck">
+              <div class="card">  
+                <a href="{{  route('admin.testimonial.index') }}"> 
+                  <div class="card-body">
+                      <h2 class="card-title m-b-5 counter text-primary">{{ $count['total_testimonials']??0 }}</h2>
+                      <h6 class="text-muted m-t-15 mb-0 lh-normal">
+                              Total Number of Testimonial
+                      </h6>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
 
           
 

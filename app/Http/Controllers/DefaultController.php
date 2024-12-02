@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 use ZipArchive;
 use File;
+use CommonFunction;
 
 class DefaultController extends Controller
 {
@@ -474,5 +475,31 @@ class DefaultController extends Controller
       'model'=>$model,
       // 'blogAuther'=>$blogAuther,
           ]);
+    }
+    
+    //********************************************************************************
+    //Title : show about
+    //Developer:Arshad Shaikh
+    //Email:arshadrockingstar@gmail.com
+    //Company:By Own
+    //Project:A3 Projects
+    //Created By : Arshad Shaikh
+    //Created Date : 16-5-2019
+    //Updated Date :
+    //Updated By :
+    //********************************************************************************
+    public function showtestimonial(Request $request)
+    {
+      // $model = Cmspage::where('is_deleted',0)->where(['key'=>'about'])->first();
+      $meta_description = config('params.home_page_meta_description');
+      $meta_keyword = config('params.home_page_meta_keyword');
+      $testimonials = CommonFunction::getGetAllTestimonials();
+      // dd($testimonials[0]->embed_url );
+      return view('web.default.testimonial',[
+      'meta_description'=>$meta_description,
+      'meta_keyword'=>$meta_keyword,
+      'testimonials'=>$testimonials,
+      'title'=>'Testimonials'
+      ]);
     }
 }

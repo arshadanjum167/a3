@@ -22,7 +22,7 @@
                     } ?>
                 </div>
             </div>
-            <a href="testimonial.php" class="nav-item nav-link">Testimonials</a>
+            <a href="{{route('show_testimonial')}}" class="nav-item nav-link">Testimonials</a>
             <a href="{{route('show_award')}}" class="nav-item nav-link">Awards</a>
             <a href="{{route('show_recognition')}}" class="nav-item nav-link">Features & Recognitions</a>
             <a href="{{route('show_contactus')}}" class="nav-item nav-link">Contact</a>

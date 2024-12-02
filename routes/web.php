@@ -24,4 +24,5 @@ Route::get('recognition','DefaultController@showrecognition')->name('show_recogn
 Route::get('blog','DefaultController@bloglist')->name('show_blog_list');
 
 Route::get('project/{slug}','DefaultController@showproject')->name('show_project');
+Route::get('testimonials','DefaultController@showtestimonial')->name('show_testimonial');
 

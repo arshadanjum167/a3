@@ -4,8 +4,32 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Quick Links</h3>
+                    <a class="btn btn-link" href="{{route('show_about')}}">About Us</a>
+                    <a class="btn btn-link" href="{{route('show_contactus')}}">Contact Us</a>
+                    <a class="btn btn-link" href="{{route('show_testimonial')}}">Testimonials</a>
+                    <a class="btn btn-link" href="{{route('show_award')}}">Awards</a>
+                    <a class="btn btn-link" href="{{route('show_recognition')}}">Features & Recognitions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Projects</h3>
+                    
+                    <?php 
+                    if(isset($projects) && $projects){
+                        foreach($projects as $value){
+                    ?>
+                    <a href="{{url('project/'.$value['route_name'])}}" class="btn btn-link"><?php echo $value['title']?></a>
+                    <?php }
+                    } ?>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Address</h3>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>C-502, Rajyash Rise,Nr Vishala Circle,Ahmabadad,Gujarat-380007</p>
+                    
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Contact</h3>
+                    
                     <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>{{config('params.admin_contactus_phone')}}</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>{{config('params.admin_contactus_email')}}</p>
                     <div class="d-flex pt-2">
@@ -23,14 +47,7 @@
                     <a class="btn btn-link" href="">Interior Design</a>
                     <a class="btn btn-link" href="">Construction</a>
                 </div> -->
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Quick Links</h3>
-                    <a class="btn btn-link" href="{{route('show_about')}}">About Us</a>
-                    <a class="btn btn-link" href="{{route('show_contactus')}}">Contact Us</a>
-                    <a class="btn btn-link" href="testimonial.php">Testimonials</a>
-                    <a class="btn btn-link" href="{{route('show_award')}}">Awards</a>
-                    <a class="btn btn-link" href="{{route('show_recognition')}}">Features & Recognitions</a>
-                </div>
+                
                 <!-- <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Newsletter</h3>
                     <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>

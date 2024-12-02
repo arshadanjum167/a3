@@ -5,6 +5,7 @@ use Cookie;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Testimonial;
 use App\Models\Emailtemplate;
 use App\Models\Token;
 use Illuminate\Support\Facades\Mail;
@@ -402,6 +403,7 @@ class CommonFunction
   {
     $result = array();
     $result['total_projects'] = Project::where(['is_deleted'=>0])->count();
+    $result['total_testimonials'] = Testimonial::where(['is_deleted'=>0])->count();
 
     return $result;
   }
@@ -418,6 +420,14 @@ class CommonFunction
     where(['is_deleted'=>0,'is_active'=>1])
     ->with(['firstMedia'])
     ->get()->toArray();
+    return $result;
+  }
+  public static function getGetAllTestimonials()
+  {
+    $result = array();
+    $result = Testimonial::
+    where(['is_deleted'=>0,'is_active'=>1])
+    ->get();
     return $result;
   }
   
