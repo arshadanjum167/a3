@@ -97,8 +97,8 @@ class MyProfileController extends Controller
         //   }
           $file = $request->file('profile_image');
           $imageName=time().$file->getClientOriginalName();
-          //$value = CommonFunction::uploadImageonlocal($file,$imageName);
-          $value = CommonFunction::uploadImageInS3bucket($file,$imageName);
+          $value = CommonFunction::uploadImageonlocal($file,$imageName);
+        //   $value = CommonFunction::uploadImageInS3bucket($file,$imageName);
           
           $model->profile_image=$value;
         }
