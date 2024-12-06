@@ -93,6 +93,15 @@ Route::group([
           'testimonial'=>'id',
       ],
     ]);
+
+    //case-study
+    Route::get('case-study/status_change', 'CasestudyController@statusChange')->name('case-study.status_change');
+    Route::get('case-study/remove_image', 'CasestudyController@removeImage')->name('case-study.remove_image');
+    $router->resource('case-study','CasestudyController',[
+      'parameters'=>[
+          'case-study'=>'id',
+      ],
+    ]);
     
   });
 

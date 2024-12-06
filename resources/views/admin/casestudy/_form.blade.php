@@ -14,26 +14,23 @@
                             @include('global.show_error',['var_name'=>'title'])
                         </div>
                         <div class="form-group">
-                            <label>Content</label>
+                            <label>Description</label>
                             {{ Form::textarea('description',null,['class'=>'cke_wrapper form-control','id'=>'editor111','cols'=>'80','rows'=>'10']) }}
                             @include('global.show_error',['var_name'=>'description'])
                         </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            {{ Form::textarea('address',null,['class'=>'form-control','id'=>'address','cols'=>'80','rows'=>'2']) }}
-                            @include('global.show_error',['var_name'=>'address'])
-                        </div>
+                        
                         <div class="form-group">
                             <label>Name of Route</label>
                             {{ Form::text('route_name',null,['class'=>'form-control','id'=>'route_name']) }}
                             @include('global.show_error',['var_name'=>'route_name'])
                         </div>
+                               
                         <div class="form-group">
-                            <label>Project images</label>
+                            <label>Image</label>
                                 <div class="clearfix">
                                 
                                 <?php 
-                                    for($i=0; $i < config('params.project_image_count'); $i++) { ?>
+                                    for($i=0; $i < 1; $i++) { ?>
                                         <div class="fileinput text-center fileinput-new mr-5" data-provides="fileinput">
                                                 <div class="btn-file mt-3">
                                                     <div class="thumbnail fileinput-new uploaded-user-image rounded-circle" style="width: 150px; height: 150px;">
@@ -66,13 +63,14 @@
                                 </div>
                             </div>
                         </div>
+                  </div>
               </div>
           </div>
       </div>
   </div>
   {{-- Form::hidden('redirects_to', $back_url) --}}
   <div class="card-footer bg-light text-right">
-      <a href="{{ route('admin.project.index')}}" class="btn btn-secondary clear-form">Cancel</a>
+      <a href="{{ route('admin.case-study.index')}}" class="btn btn-secondary clear-form">Cancel</a>
       {{--<a href="{{ $back_url }}" class="btn btn-secondary clear-form">Cancel</a> --}}
       <button type="submit" class="btn btn-primary load-button">Submit</button>
 
@@ -81,40 +79,19 @@
 
 
 @section('custom_scripts')
-<!-- <script src="{{asset('/assets/vendor/ckeditor/ckeditor.js') }}"></script> -->
-<!-- <script src="https://cdn.ckeditor.com/4.19.1/full/ckeditor.js"></script> -->
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.0.1/ckeditor.js"></script> -->
-<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-
-
-
-
-
-
 
 
 
 <script>
-    // CKEDITOR.replace( 'editor1' );
-    jQuery(function () {
-       	CKEDITOR.replace('editor1');
-       	CKEDITOR.config.height = 400;
-	   	CKEDITOR.config.allowedContent = true;
-        CKEDITOR.config.protectedSource.push( /<ins[\s|\S]+?<\/ins>/g); // Protects <INS> tags
-        CKEDITOR.config.protectedSource.push( /<ins class=\"adsbygoogle\"\>.*?<\/ins\>/g );
-
-    });
-
     $(document).on('click', '.remove-image', function () {
     var mediaId = $(this).data('id');
     if (confirm('Are you sure you want to remove this image?')) {
         $.ajax({
             type: 'GET',         // HTTP method
             async: false,
-            url: "{{  route('admin.project.remove_image') }}",
+            url: "{{  route('admin.case-study.remove_image') }}",
             data: {
                 media_id: mediaId,
-                project_id: <?php echo ($model->id)?$model->id:0?>,
             },
             success: function (response) {
                 if (response.success) {
@@ -132,5 +109,6 @@
         });
     }
 });
+  
 </script>
 @endsection

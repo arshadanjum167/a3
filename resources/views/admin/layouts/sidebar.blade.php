@@ -24,6 +24,7 @@
                 <!-- <li @if(Request::segment(2)=='cmspages') class="active" @endif><a href="{{ route('admin.cmspages.index') }}"><i class="icon dripicons-meter"></i><span>CMS Pages</span></a></li> -->
                 <li @if(Request::segment(2)=='project') class="active" @endif><a href="{{ route('admin.project.index') }}"><i class="icon dripicons-briefcase"></i><span>Project</span></a></li>
                 <li @if(Request::segment(2)=='testimonial') class="active" @endif><a href="{{ route('admin.testimonial.index') }}"><i class="icon dripicons-bookmark"></i><span>Testimonial</span></a></li>
+                <li @if(Request::segment(2)=='casestudy') class="active" @endif><a href="{{ route('admin.case-study.index') }}"><i class="icon dripicons-to-do"></i><span>Casestudy</span></a></li>
                 
             </ul>
         </nav>

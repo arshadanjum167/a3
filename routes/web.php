@@ -25,4 +25,6 @@ Route::get('blog','DefaultController@bloglist')->name('show_blog_list');
 
 Route::get('project/{slug}','DefaultController@showproject')->name('show_project');
 Route::get('testimonials','DefaultController@showtestimonial')->name('show_testimonial');
+Route::get('case-study','DefaultController@showcasestudy')->name('show_casestudy');
+Route::get('case-study/{slug}','DefaultController@showparticularcasestudy')->name('show_particularcasestudy');
 

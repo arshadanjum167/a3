@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\Testimonial;
+use App\Models\Casestudy;
 use App\Models\Emailtemplate;
 use App\Models\Token;
 use Illuminate\Support\Facades\Mail;
@@ -426,6 +427,14 @@ class CommonFunction
   {
     $result = array();
     $result = Testimonial::
+    where(['is_deleted'=>0,'is_active'=>1])
+    ->get();
+    return $result;
+  }
+  public static function getGetAllCasestudy()
+  {
+    $result = array();
+    $result = Casestudy::
     where(['is_deleted'=>0,'is_active'=>1])
     ->get();
     return $result;

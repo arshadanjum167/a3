@@ -8,6 +8,7 @@
                     <a class="btn btn-link" href="{{route('show_about')}}">About Us</a>
                     <a class="btn btn-link" href="{{route('show_contactus')}}">Contact Us</a>
                     <a class="btn btn-link" href="{{route('show_testimonial')}}">Testimonials</a>
+                    <a class="btn btn-link" href="{{route('show_casestudy')}}" >Case-study</a>
                     <a class="btn btn-link" href="{{route('show_award')}}">Awards</a>
                     <a class="btn btn-link" href="{{route('show_recognition')}}">Features & Recognitions</a>
                 </div>
@@ -77,7 +78,7 @@
     <!-- Footer End -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
-        <img class="position-absolute top-50 start-50 translate-middle " src="{{asset('/assets/img/logo.png')}}" alt="Icon">
+        <img class="position-absolute top-50 start-50 translate-middle" src="{{asset('/assets/img/loading.gif')}}" alt="Icon">
 </div>
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

@@ -10,6 +10,7 @@ use Session;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\Blogauthor;
+use App\Models\Casestudy;
 use App\Models\Cmspage;
 use App\Http\Requests\Admin\Auth\ResetPasswordRequest;
 use App\Http\Requests\Admin\Iosimage\IosImageRequest;
@@ -501,5 +502,63 @@ class DefaultController extends Controller
       'testimonials'=>$testimonials,
       'title'=>'Testimonials'
       ]);
+    }
+    
+    //********************************************************************************
+    //Title : show about
+    //Developer:Arshad Shaikh
+    //Email:arshadrockingstar@gmail.com
+    //Company:By Own
+    //Project:A3 Projects
+    //Created By : Arshad Shaikh
+    //Created Date : 16-5-2019
+    //Updated Date :
+    //Updated By :
+    //********************************************************************************
+    public function showcasestudy(Request $request)
+    {
+      // $model = Cmspage::where('is_deleted',0)->where(['key'=>'about'])->first();
+      $meta_description = config('params.home_page_meta_description');
+      $meta_keyword = config('params.home_page_meta_keyword');
+      $casestudy = CommonFunction::getGetAllCasestudy();
+      // dd($casestudy[0]->embed_url );
+      return view('web.default.casestudy',[
+      'meta_description'=>$meta_description,
+      'meta_keyword'=>$meta_keyword,
+      'casestudy'=>$casestudy,
+      'title'=>'Case-study'
+      ]);
+    }
+    
+    public function showparticularcasestudy(Request $request,$slug)
+    {
+      $model = Casestudy::where('is_active',1)->where('is_deleted',0)->where(['route_name'=>$slug])->first();
+      if(!$model)
+      {
+        // return response(['error' => true, 'error-msg' => 'Not found'], 404);
+        // $data['title'] = '404';
+        // $data['name'] = 'Page not found';
+        
+        $response['data'] = [];
+        $response['success'] = 0;
+        $response['error'][] = 'aaa';
+        return view('errors.error');
+      }
+      //get blog author detail
+      // $blogAuther = Blogauthor::where('is_active',1)->where('is_deleted',0)->where(['id'=>$model->author_id])->first();
+      
+      
+      $meta_description = $model->meta_description;
+      $meta_keyword = $model->meta_keyword;
+      $data = config('params.about');
+      // $model->read_count+=1;
+      // $model->save();
+      return view('web.default.particularcasestudy',['data'=>$data,
+      'meta_description'=>$meta_description,
+      'meta_keyword'=>$meta_keyword,
+      'title'=>$model->title,
+      'model'=>$model,
+      // 'blogAuther'=>$blogAuther,
+          ]);
     }
 }
