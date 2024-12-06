@@ -405,6 +405,7 @@ class CommonFunction
     $result = array();
     $result['total_projects'] = Project::where(['is_deleted'=>0])->count();
     $result['total_testimonials'] = Testimonial::where(['is_deleted'=>0])->count();
+    $result['total_casestudy'] = Casestudy::where(['is_deleted'=>0])->count();
 
     return $result;
   }
